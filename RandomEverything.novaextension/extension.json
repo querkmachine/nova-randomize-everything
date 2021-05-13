@@ -32,8 +32,23 @@
         "when": "editorHasFocus"
       },
       {
+        "title": "Random first name",
+        "command": "random.nameFirst",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random full name",
+        "command": "random.nameFull",
+        "when": "editorHasFocus"
+      },
+      {
         "title": "Random integer",
         "command": "random.numberInt",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random last name",
+        "command": "random.nameLast",
         "when": "editorHasFocus"
       },
       {
