@@ -47,6 +47,17 @@
         "when": "editorHasFocus"
       },
       {
+        "title": "Random date (ISO-8601)",
+        "command": "random.dateISO8601",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random date and time (ISO-8601)",
+        "command": "random.datetimeISO8601",
+        "when": "editorHasFocus"
+      },
+
+      {
         "title": "Random first name",
         "command": "random.nameFirst",
         "when": "editorHasFocus"

@@ -5,6 +5,7 @@ import {
   countryISO3166alpha3,
   countryISO3166numeric,
 } from "./generators/country";
+import { dateISO8601, datetimeISO8601 } from "./generators/datetime";
 import { nameFirst, nameLast, nameFull } from "./generators/name";
 import { numberInt, numberFloat } from "./generators/number";
 import { uuidV4 } from "./generators/uuid";
@@ -60,6 +61,12 @@ export function activate() {
   });
   nova.commands.register("random.countryISO3166numeric", (editor) => {
     insertAtPosition(editor, () => countryISO3166numeric());
+  });
+  nova.commands.register("random.dateISO8601", (editor) => {
+    insertAtPosition(editor, () => dateISO8601());
+  });
+  nova.commands.register("random.datetimeISO8601", (editor) => {
+    insertAtPosition(editor, () => datetimeISO8601());
   });
   nova.commands.register("random.nameFirst", (editor) => {
     insertAtPosition(editor, () => nameFirst());

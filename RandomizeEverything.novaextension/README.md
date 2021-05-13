@@ -7,6 +7,7 @@ Randomize Everything can currently generate:
 - Colors (hexadecimal, RGB, HSL)
 - Country names
 - Country codes (ISO-3166 alpha-2, alpha-3, numeric)
+- Dates and datetimes (ISO-8601)
 - Names (first names, last names, full names)
 - Numbers (floats and integers)
 - UUIDs (currently v4 only)
