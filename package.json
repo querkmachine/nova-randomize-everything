@@ -1,0 +1,30 @@
+{
+  "name": "nova-random-everything",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "onchange -i \"src/**\" \"rollup.*.js\" -- npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/querkmachine/nova-random-everything.git"
+  },
+  "keywords": [
+    "nova"
+  ],
+  "author": "Kimberly Grey <hi@berly.kim>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/querkmachine/nova-random-everything/issues"
+  },
+  "homepage": "https://github.com/querkmachine/nova-random-everything#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "onchange": "^7.1.0",
+    "rollup": "^2.47.0"
+  }
+}

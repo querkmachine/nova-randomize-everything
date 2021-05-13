@@ -1,0 +1,84 @@
+{
+  "identifier": "querkmachine.RandomEverything",
+  "name": "Random Everything",
+  "organization": "querkmachine",
+  "description": "Insert random placeholder content anywhere. Inspired by Sublime Text's 'Random Everything' extension by Kim Pettersen.",
+  "version": "1.0.0",
+  "repository": "https://github.com/querkmachine/nova-random-everything",
+  "bugs": "https://github.com/querkmachine/nova-random-everything/issues",
+  "license": "MIT",
+  "main": "main.dist.js",
+  "categories": ["commands"],
+  "commands": {
+    "editor": [
+      {
+        "title": "Random country name",
+        "command": "random.countryName",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random country code (ISO-3166 alpha-2)",
+        "command": "random.countryISO3166alpha2",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random country code (ISO-3166 alpha-3)",
+        "command": "random.countryISO3166alpha3",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random country code (ISO-3166 numeric)",
+        "command": "random.countryISO3166numeric",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random integer",
+        "command": "random.numberInt",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random float",
+        "command": "random.numberFloat",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random UUID (v4)",
+        "command": "random.uuidV4",
+        "when": "editorHasFocus"
+      }
+    ]
+  },
+  "config": [
+    {
+      "type": "section",
+      "title": "Numbers",
+      "children": [
+        {
+          "key": "random.promptNumberRange",
+          "title": "Always ask for number range to use",
+          "description": "If disabled, numbers will immediately be inserted based on the default number range.",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "key": "random.defaultNumberRange",
+          "title": "Default number range",
+          "description": "The default number range used when generating random numbers, written as two numbers separated by a dash (e.g. 0-100). Both numbers are inclusive.",
+          "type": "string",
+          "default": "0-100",
+          "placeholder": "0-100"
+        },
+        {
+          "key": "random.floatDecimalPlaces",
+          "title": "Decimal places",
+          "description": "How many decimal places floats should generate.",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 15,
+          "required": true
+        }
+      ]
+    }
+  ]
+}
