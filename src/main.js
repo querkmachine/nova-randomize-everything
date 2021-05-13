@@ -1,3 +1,4 @@
+import { colorHex, colorRGB, colorHSL } from "./generators/color";
 import {
   countryName,
   countryISO3166alpha2,
@@ -39,6 +40,15 @@ function promptForInput(settings = {}) {
 }
 
 export function activate() {
+  nova.commands.register("random.colorHex", (editor) => {
+    insertAtPosition(editor, () => colorHex());
+  });
+  nova.commands.register("random.colorRGB", (editor) => {
+    insertAtPosition(editor, () => colorRGB());
+  });
+  nova.commands.register("random.colorHSL", (editor) => {
+    insertAtPosition(editor, () => colorHSL());
+  });
   nova.commands.register("random.countryName", (editor) => {
     insertAtPosition(editor, () => countryName());
   });

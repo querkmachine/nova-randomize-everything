@@ -2,7 +2,7 @@
   "identifier": "querkmachine.RandomEverything",
   "name": "Random Everything",
   "organization": "querkmachine",
-  "description": "Insert random placeholder content anywhere. Inspired by Sublime Text's 'Random Everything' extension by Kim Pettersen.",
+  "description": "Generate random placeholder content anywhere.",
   "version": "1.0.0",
   "repository": "https://github.com/querkmachine/nova-random-everything",
   "bugs": "https://github.com/querkmachine/nova-random-everything/issues",
@@ -11,6 +11,21 @@
   "categories": ["commands"],
   "commands": {
     "editor": [
+      {
+        "title": "Random hex color",
+        "command": "random.colorHex",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random RGB color",
+        "command": "random.colorRGB",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random HSL color",
+        "command": "random.colorHSL",
+        "when": "editorHasFocus"
+      },
       {
         "title": "Random country name",
         "command": "random.countryName",
@@ -71,7 +86,9 @@
         {
           "key": "random.hexColorCapitalize",
           "title": "Capitalize generated hex colors.",
-          "description": "If enabled, "
+          "description": "If enabled, generated hexadecimal colors will be entirely uppercase (e.g. #BADA55 instead of #bada55).",
+          "type": "boolean",
+          "default": false
         }
       ]
     },
