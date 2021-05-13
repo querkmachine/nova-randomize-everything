@@ -1,8 +1,8 @@
-# Random Everything
+# Randomize Everything
 
 A [Nova](https://nova.app) extension that adds commands to randomly generate everything. Handy for placeholder and demo content.
 
-Random Everything can currently generate:
+Randomize Everything can currently generate:
 
 - Colors (hexadecimal, RGB, HSL)
 - Country names
