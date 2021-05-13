@@ -1,3 +1,5 @@
+import { generateNumber } from "./util/utilities";
+
 function parseRange(range) {
   range =
     range && typeof range !== "undefined"
@@ -13,10 +15,8 @@ function parseRange(range) {
 }
 
 export function numberInt(range) {
-  let { min, max } = parseRange(range);
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return String(Math.floor(Math.random() * (max - min + 1) + min));
+  const { min, max } = parseRange(range);
+  return String(generateNumber(min, max));
 }
 
 export function numberFloat(range) {
