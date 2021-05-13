@@ -4,7 +4,7 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 export default {
   input: "src/main.js",
   output: {
-    file: "RandomEverything.novaextension/scripts/main.dist.js",
+    file: "RandomizeEverything.novaextension/scripts/main.dist.js",
     format: "cjs",
   },
   plugins: [
