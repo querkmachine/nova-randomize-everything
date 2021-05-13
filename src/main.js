@@ -62,7 +62,9 @@ export function activate() {
   });
   nova.commands.register("random.numberFloat", (editor) => {
     //insertAtPosition(editor, () => numberFloat());
-    if (nova.config.get("random.promptNumberRange", "boolean")) {
+    if (nova.config.get("random.disableNumberRangePrompt", "boolean")) {
+      insertAtPosition(editor, () => numberFloat(null));
+    } else {
       promptForInput({
         id: "random.numberFloat",
         title: "Enter number range.",
@@ -72,12 +74,12 @@ export function activate() {
           insertAtPosition(editor, () => numberFloat(range || null));
         },
       });
-    } else {
-      insertAtPosition(editor, () => numberFloat(null));
     }
   });
   nova.commands.register("random.numberInt", (editor) => {
-    if (nova.config.get("random.promptNumberRange", "boolean")) {
+    if (nova.config.get("random.disableNumberRangePrompt", "boolean")) {
+      insertAtPosition(editor, () => numberInt(null));
+    } else {
       promptForInput({
         id: "random.numberInt",
         title: "Enter number range.",
@@ -87,8 +89,6 @@ export function activate() {
           insertAtPosition(editor, () => numberInt(range || null));
         },
       });
-    } else {
-      insertAtPosition(editor, () => numberInt(null));
     }
   });
   nova.commands.register("random.uuidV4", (editor) => {

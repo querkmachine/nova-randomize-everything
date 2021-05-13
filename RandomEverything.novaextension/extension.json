@@ -66,14 +66,25 @@
   "config": [
     {
       "type": "section",
+      "title": "Colors",
+      "children": [
+        {
+          "key": "random.hexColorCapitalize",
+          "title": "Capitalize generated hex colors.",
+          "description": "If enabled, "
+        }
+      ]
+    },
+    {
+      "type": "section",
       "title": "Numbers",
       "children": [
         {
-          "key": "random.promptNumberRange",
-          "title": "Always ask for number range to use",
-          "description": "If disabled, numbers will immediately be inserted based on the default number range.",
+          "key": "random.disableNumberRangePrompt",
+          "title": "Insert numbers without prompting",
+          "description": "If enabled, numbers will be inserted immediately using the default number range.",
           "type": "boolean",
-          "default": true
+          "default": false
         },
         {
           "key": "random.defaultNumberRange",
