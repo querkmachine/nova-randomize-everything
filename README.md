@@ -12,4 +12,18 @@ Randomize Everything can currently generate:
 - Numbers (floats and integers)
 - UUIDs (currently v4 only)
 
+## Usage
+
+Search for, install and activate Randomize Everything from Nova's Extension Library (`Extensions -> Extension Library...` or `⇧ + ⌘ + 2`).
+
+Once activated, Randomize Everything can be accessed through the Command Palette (`View -> Command Palette...` or `⇧ + ⌘ + P`) or as an option in the Editor menu (`Editor -> Randomize Everything`).
+
+## Contributing
+
+Whilst basic, this is my first time developing an extension for a code editor. There might be silly mistakes or questionable decisions here and there. Feel free to submit pull requests to fix anything that's obviously off-kilter.
+
+Randomize Everything is tailored to the use cases that I typically need it for. If there's something that can be added that you think would benefit others, feel free to raise an issue to suggest it!
+
+## Thanks
+
 Inspired by, and hat tip to, [random-sublime-text-plugin](https://github.com/kimpettersen/random-sublime-text-plugin) and [nova-uuid](https://github.com/henrikdahl/nova-uuid) for the inspiration and the handy dandy open source code I used to get started.
