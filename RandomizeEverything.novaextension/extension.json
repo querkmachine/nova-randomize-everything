@@ -12,6 +12,21 @@
   "commands": {
     "editor": [
       {
+        "title": "Random string (alphabetical)",
+        "command": "random.stringAlphabetical",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random string (alphanumeric)",
+        "command": "random.stringAlphanumeric",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random string (password-like)",
+        "command": "random.stringPassword",
+        "when": "editorHasFocus"
+      },
+      {
         "title": "Random sentence (Lorem Ipsum)",
         "command": "random.stringLoremSentence",
         "when": "editorHasFocus"
@@ -112,12 +127,28 @@
   "config": [
     {
       "type": "section",
+      "title": "Strings",
+      "children": [
+        {
+          "key": "random.stringLength",
+          "title": "String length",
+          "description": "Length of alphabetical, alphanumeric and password-like generated strings.",
+          "type": "number",
+          "default": 32,
+          "min": 1,
+          "max": 9999,
+          "required": true
+        }
+      ]
+    },
+    {
+      "type": "section",
       "title": "Numbers",
       "children": [
         {
           "key": "random.disableNumberRangePrompt",
           "title": "Insert numbers without prompting",
-          "description": "If enabled, numbers will be inserted immediately using the default number range.",
+          "description": "If enabled, numbers will be inserted immediately using the default number range instead of asking for a range each time.",
           "type": "boolean",
           "default": false
         },

@@ -8,5 +8,7 @@ Initial release with support for:
 - Dates and datetimes (ISO-8601)
 - Float
 - Integer
+- Lorem Ipsum (sentences, paragraphs)
 - Names (first, last, full)
+- Strings (alphabetical, alphanumeric, password-like)
 - UUID (v4)

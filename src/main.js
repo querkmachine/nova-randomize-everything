@@ -12,7 +12,13 @@ import {
 } from "./generators/datetime";
 import { nameFirst, nameLast, nameFull } from "./generators/name";
 import { numberInt, numberFloat } from "./generators/number";
-import { stringLoremSentence, stringLoremParagraph } from "./generators/string";
+import {
+  stringAlphanumeric,
+  stringAlphabetical,
+  stringPassword,
+  stringLoremSentence,
+  stringLoremParagraph,
+} from "./generators/string";
 import { uuidV4 } from "./generators/uuid";
 
 function insertAtPosition(editor, cb) {
@@ -115,6 +121,15 @@ export function activate() {
         },
       });
     }
+  });
+  nova.commands.register("random.stringAlphanumeric", (editor) => {
+    insertAtPosition(editor, () => stringAlphanumeric());
+  });
+  nova.commands.register("random.stringAlphabetical", (editor) => {
+    insertAtPosition(editor, () => stringAlphabetical());
+  });
+  nova.commands.register("random.stringPassword", (editor) => {
+    insertAtPosition(editor, () => stringPassword());
   });
   nova.commands.register("random.stringLoremSentence", (editor) => {
     insertAtPosition(editor, () => stringLoremSentence());
