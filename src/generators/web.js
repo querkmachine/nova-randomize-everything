@@ -19,11 +19,9 @@ const realEmailDomains = [
   "aol.com",
   "icloud.com",
 ];
-const domainExtensions = nova.config.get("random.domainTLDs", "array") || [
-  ".com",
-  ".net",
-  ".org",
-];
+const domainExtensions = nova.config.get("random.domainTLDs", "array").length
+  ? nova.config.get("random.domainTLDs", "array")
+  : [".com", ".net", ".org"];
 
 function stripPunctuation(str) {
   return str.replace(/[\W_]+/g, "");
@@ -33,9 +31,12 @@ function emailLocalPart() {
   const localPart1 = stripPunctuation(
     Math.random() > 0.5 ? lorem.generateWords(1) : nameFirst()
   );
-  const localPart2 = stripPunctuation(
-    Math.random() > 0.5 ? lorem.generateWords(1) : nameLast()
-  );
+  const localPart2 =
+    Math.random() > 0.25
+      ? stripPunctuation(
+          Math.random() > 0.5 ? lorem.generateWords(1) : nameLast()
+        )
+      : "";
   const localPart3 = Math.random() > 0.5 ? generateNumber(2, 99) : "";
   return `${localPart1}${pickFromArray(
     localPartJoiners
