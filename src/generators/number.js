@@ -25,3 +25,9 @@ export function numberFloat(range) {
     nova.config.get("random.floatDecimalPlaces", "number")
   );
 }
+
+export function numberBinary(range) {
+  const { min, max } = parseRange(range);
+  const stringLength = max.toString(2).length;
+  return generateNumber(min, max).toString(2).padStart(stringLength, "0");
+}

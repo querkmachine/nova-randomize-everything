@@ -13,6 +13,7 @@ Randomize Everything can currently generate:
 | Paragraph (Lorem Ipsum)         | `Ea reprehenderit nisi nisi ut officia sint ad fugiat officia[...]` |                                        |
 | Integer                         | `85`                                                                | Number range                           |
 | Float                           | `38.31776`                                                          | Number range, number of decimal places |
+| Binary integer                  | `0101010`                                                           | Number range                           |
 | IPv4 address                    | `178.133.130.40`                                                    |                                        |
 | IPv6 address                    | `ceef:a28a:9449:0587:f9b9:3917:5789:718a`                           |                                        |
 | MAC address (48-bit)            | `0F:84:47:EC:F7:DC`                                                 |                                        |

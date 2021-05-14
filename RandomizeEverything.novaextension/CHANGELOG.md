@@ -8,7 +8,7 @@ Initial release with support for:
 - Dates, times and datetimes (ISO-8601)
 - Floats
 - Hashes (MD5, SHA-1, SHA-256)
-- Integers
+- Integers (decimal, binary)
 - IP addresses (v4, v6)
 - Lorem Ipsum (sentences, paragraphs)
 - MAC addresses (48-bit, 64-bit)

@@ -18,7 +18,7 @@ import {
 } from "./generators/datetime";
 import { hashMD5, hashSHA1, hashSHA256 } from "./generators/hash";
 import { nameFirst, nameLast, nameFull } from "./generators/name";
-import { numberInt, numberFloat } from "./generators/number";
+import { numberInt, numberFloat, numberBinary } from "./generators/number";
 import {
   stringAlphanumeric,
   stringAlphabetical,
@@ -146,6 +146,21 @@ export function activate() {
         placeholder: nova.config.get("random.defaultNumberRange", "string"),
         cb: (range) => {
           insertAtPosition(editor, () => numberInt(range || null));
+        },
+      });
+    }
+  });
+  nova.commands.register("random.numberBinary", (editor) => {
+    if (nova.config.get("random.disableNumberRangePrompt", "boolean")) {
+      insertAtPosition(editor, () => numberBinary(null));
+    } else {
+      promptForInput({
+        id: "random.numberBinary",
+        title: "Enter number range.",
+        body: "Enter range separated by a dash.",
+        placeholder: nova.config.get("random.defaultNumberRange", "string"),
+        cb: (range) => {
+          insertAtPosition(editor, () => numberBinary(range || null));
         },
       });
     }
