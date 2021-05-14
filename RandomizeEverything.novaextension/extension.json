@@ -163,6 +163,12 @@
         "title": "Random last name",
         "command": "random.nameLast",
         "when": "editorHasFocus"
+      },
+      { "separator": true },
+      {
+        "title": "Random email address",
+        "command": "random.webEmail",
+        "when": "editorHasFocus"
       }
     ]
   },
@@ -261,6 +267,26 @@
           "key": "random.hexColorCapitalize",
           "title": "Capitalize generated hex colors",
           "description": "If enabled, generated hexadecimal colors will be entirely uppercase (e.g. #BADA55 instead of #bada55).",
+          "type": "boolean",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Web",
+      "children": [
+        {
+          "key": "random.domainTLDs",
+          "title": "Possible domain extensions",
+          "description": "Domain extensions to use when creating random URLs and email addresses.",
+          "type": "stringArray",
+          "default": [".com", ".net", ".org"]
+        },
+        {
+          "key": "random.useRealEmailDomains",
+          "title": "Use real email domains",
+          "description": "Uses the domain names of actual email providers instead of creating random domain names.",
           "type": "boolean",
           "default": false
         }
