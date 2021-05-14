@@ -34,6 +34,11 @@
         "when": "editorHasFocus"
       },
       {
+        "title": "Random time (ISO-8601)",
+        "command": "random.timeISO8601",
+        "when": "editorHasFocus"
+      },
+      {
         "title": "Random date and time (ISO-8601)",
         "command": "random.datetimeISO8601",
         "when": "editorHasFocus"
@@ -96,19 +101,6 @@
   "config": [
     {
       "type": "section",
-      "title": "Colors",
-      "children": [
-        {
-          "key": "random.hexColorCapitalize",
-          "title": "Capitalize generated hex colors.",
-          "description": "If enabled, generated hexadecimal colors will be entirely uppercase (e.g. #BADA55 instead of #bada55).",
-          "type": "boolean",
-          "default": false
-        }
-      ]
-    },
-    {
-      "type": "section",
       "title": "Numbers",
       "children": [
         {
@@ -135,6 +127,58 @@
           "min": 1,
           "max": 15,
           "required": true
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Dates and times",
+      "children": [
+        {
+          "key": "random.yearMin",
+          "title": "Earliest possible year",
+          "description": "The earliest year that a generated date can be in.",
+          "type": "number",
+          "default": 1900,
+          "min": 0,
+          "max": 9999,
+          "required": true
+        },
+        {
+          "key": "random.yearMax",
+          "title": "Latest possible year",
+          "description": "The latest year that a generated date can be in.",
+          "type": "number",
+          "default": 2100,
+          "min": 0,
+          "max": 9999,
+          "required": true
+        },
+        {
+          "key": "random.generateTimezones",
+          "title": "Timezone format",
+          "description": "ISO 8601 datetimes can optionally include a timezone indicator.",
+          "type": "enum",
+          "radio": true,
+          "default": "full",
+          "values": [
+            ["full", "Use a randomized timezone offset (e.g. -05:00)"],
+            ["utc", "Always use the UTC timezone (Z)"],
+            ["none", "Do not use a timezone indicator"]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Colors",
+      "children": [
+        {
+          "key": "random.hexColorCapitalize",
+          "title": "Capitalize generated hex colors",
+          "description": "If enabled, generated hexadecimal colors will be entirely uppercase (e.g. #BADA55 instead of #bada55).",
+          "type": "boolean",
+          "default": false
         }
       ]
     }
