@@ -166,6 +166,16 @@
       },
       { "separator": true },
       {
+        "title": "Random domain name",
+        "command": "random.webDomainName",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random web address",
+        "command": "random.webURL",
+        "when": "editorHasFocus"
+      },
+      {
         "title": "Random email address",
         "command": "random.webEmail",
         "when": "editorHasFocus"

@@ -27,7 +27,7 @@ import {
   stringLoremParagraph,
 } from "./generators/string";
 import { uuidV4 } from "./generators/uuid";
-import { webEmail } from "./generators/web";
+import { webURL, webDomainName, webEmail } from "./generators/web";
 
 function insertAtPosition(editor, cb) {
   editor.edit((textEditor) => {
@@ -183,6 +183,12 @@ export function activate() {
   });
   nova.commands.register("random.uuidV4", (editor) => {
     insertAtPosition(editor, () => uuidV4());
+  });
+  nova.commands.register("random.webDomainName", (editor) => {
+    insertAtPosition(editor, () => webDomainName());
+  });
+  nova.commands.register("random.webURL", (editor) => {
+    insertAtPosition(editor, () => webURL());
   });
   nova.commands.register("random.webEmail", (editor) => {
     insertAtPosition(editor, () => webEmail());

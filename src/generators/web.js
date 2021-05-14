@@ -9,6 +9,7 @@ import {
 const lorem = new LoremIpsum();
 
 const localPartJoiners = ["", ".", "_"];
+
 const realEmailDomains = [
   "gmail.com",
   "googlemail.com",
@@ -19,6 +20,7 @@ const realEmailDomains = [
   "aol.com",
   "icloud.com",
 ];
+
 const domainExtensions = nova.config.get("random.domainTLDs", "array").length
   ? nova.config.get("random.domainTLDs", "array")
   : [".com", ".net", ".org"];
@@ -38,23 +40,43 @@ function emailLocalPart() {
         )
       : "";
   const localPart3 = Math.random() > 0.5 ? generateNumber(2, 99) : "";
-  return `${localPart1}${pickFromArray(
-    localPartJoiners
-  )}${localPart2}${localPart3}`.toLowerCase();
+  return replaceDiacritics(
+    `${localPart1}${pickFromArray(localPartJoiners)}${localPart2}${localPart3}`
+  ).toLowerCase();
 }
 
 function emailDomainPart() {
   if (nova.config.get("random.useRealEmailDomains", "boolean")) {
     return pickFromArray(realEmailDomains);
   } else {
-    return `${stripPunctuation(
-      lorem.generateWords(generateNumber(1, 3))
-    )}${pickFromArray(domainExtensions)}`.toLowerCase();
+    return webDomainName();
   }
 }
 
 export function webEmail() {
-  return replaceDiacritics(
-    `${emailLocalPart()}@${emailDomainPart()}`
-  ).toLowerCase();
+  return `${emailLocalPart()}@${emailDomainPart()}`.toLowerCase();
+}
+
+export function webDomainName() {
+  return `${stripPunctuation(
+    lorem.generateWords(generateNumber(1, 3))
+  )}${pickFromArray(domainExtensions)}`.toLowerCase();
+}
+
+export function webURL() {
+  let str = Math.random() > 0.5 ? "https" : "http";
+  str += "://";
+  str +=
+    Math.random() > 0.5
+      ? "www."
+      : Math.random() > 0.5
+      ? lorem.generateWords(1) + "."
+      : "";
+  str += webDomainName();
+  str += "/" + lorem.generateWords(1);
+  str += "/" + lorem.generateWords(1);
+  str += "?" + lorem.generateWords(1) + "=" + lorem.generateWords(1);
+  str += "&" + lorem.generateWords(1) + "=" + generateNumber(1, 9999);
+  str += "#" + lorem.generateWords(1);
+  return str.toLowerCase();
 }
