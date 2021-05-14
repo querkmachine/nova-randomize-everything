@@ -10,6 +10,7 @@ import {
   timeISO8601,
   datetimeISO8601,
 } from "./generators/datetime";
+import { hashMD5, hashSHA1, hashSHA256 } from "./generators/hash";
 import { nameFirst, nameLast, nameFull } from "./generators/name";
 import { numberInt, numberFloat } from "./generators/number";
 import {
@@ -81,6 +82,15 @@ export function activate() {
   });
   nova.commands.register("random.datetimeISO8601", (editor) => {
     insertAtPosition(editor, () => datetimeISO8601());
+  });
+  nova.commands.register("random.hashMD5", (editor) => {
+    insertAtPosition(editor, () => hashMD5());
+  });
+  nova.commands.register("random.hashSHA1", (editor) => {
+    insertAtPosition(editor, () => hashSHA1());
+  });
+  nova.commands.register("random.hashSHA256", (editor) => {
+    insertAtPosition(editor, () => hashSHA256());
   });
   nova.commands.register("random.nameFirst", (editor) => {
     insertAtPosition(editor, () => nameFirst());

@@ -55,6 +55,22 @@
       },
       { "separator": true },
       {
+        "title": "Random MD5 hash",
+        "command": "random.hashMD5",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random SHA-1 hash",
+        "command": "random.hashSHA1",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random SHA-256 hash",
+        "command": "random.hashSHA256",
+        "when": "editorHasFocus"
+      },
+      { "separator": true },
+      {
         "title": "Random date (ISO-8601)",
         "command": "random.dateISO8601",
         "when": "editorHasFocus"
