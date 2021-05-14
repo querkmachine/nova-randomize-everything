@@ -26,5 +26,8 @@
     "@rollup/plugin-node-resolve": "^13.0.0",
     "onchange": "^7.1.0",
     "rollup": "^2.47.0"
+  },
+  "dependencies": {
+    "lorem-ipsum": "^2.0.3"
   }
 }

@@ -12,6 +12,17 @@
   "commands": {
     "editor": [
       {
+        "title": "Random sentence (Lorem Ipsum)",
+        "command": "random.stringLoremSentence",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random paragraph (Lorem Ipsum)",
+        "command": "random.stringLoremParagraph",
+        "when": "editorHasFocus"
+      },
+      { "separator": true },
+      {
         "title": "Random integer",
         "command": "random.numberInt",
         "when": "editorHasFocus"

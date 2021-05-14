@@ -12,6 +12,7 @@ import {
 } from "./generators/datetime";
 import { nameFirst, nameLast, nameFull } from "./generators/name";
 import { numberInt, numberFloat } from "./generators/number";
+import { stringLoremSentence, stringLoremParagraph } from "./generators/string";
 import { uuidV4 } from "./generators/uuid";
 
 function insertAtPosition(editor, cb) {
@@ -114,6 +115,12 @@ export function activate() {
         },
       });
     }
+  });
+  nova.commands.register("random.stringLoremSentence", (editor) => {
+    insertAtPosition(editor, () => stringLoremSentence());
+  });
+  nova.commands.register("random.stringLoremParagraph", (editor) => {
+    insertAtPosition(editor, () => stringLoremParagraph());
   });
   nova.commands.register("random.uuidV4", (editor) => {
     insertAtPosition(editor, () => uuidV4());
