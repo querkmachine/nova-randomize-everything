@@ -278,7 +278,14 @@
           "title": "Capitalize generated hex colors",
           "description": "If enabled, generated hexadecimal colors will be entirely uppercase (e.g. #BADA55 instead of #bada55).",
           "type": "boolean",
-          "default": false
+          "default": true
+        },
+        {
+          "key": "random.colorsCSSFormatted",
+          "title": "Output colors in CSS compatible formats",
+          "description": "If enabled, RGB and HSL colours will output in CSS compatible format (e.g. hsl(263, 63%, 73%) instead of 263, 63, 73).",
+          "type": "boolean",
+          "default": true
         }
       ]
     },

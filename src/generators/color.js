@@ -9,15 +9,23 @@ export function colorHex() {
 }
 
 export function colorRGB() {
-  return `rgb(${generateNumber(0, 255)}, ${generateNumber(
-    0,
-    255
-  )}, ${generateNumber(0, 255)})`;
+  const r = generateNumber(0, 255),
+    g = generateNumber(0, 255),
+    b = generateNumber(0, 255);
+  if (nova.config.get("random.colorsCSSFormatted", "boolean")) {
+    return `rgb(${r}, ${g}, ${b})`;
+  } else {
+    return `${r}, ${g}, ${b}`;
+  }
 }
 
 export function colorHSL() {
-  return `hsl(${generateNumber(0, 359)}, ${generateNumber(
-    0,
-    100
-  )}%, ${generateNumber(0, 100)}%)`;
+  const h = generateNumber(0, 359),
+    s = generateNumber(0, 100),
+    l = generateNumber(0, 100);
+  if (nova.config.get("random.colorsCSSFormatted", "boolean")) {
+    return `hsl(${h}, ${s}%, ${l}%)`;
+  } else {
+    return `${h}, ${s}, ${l}`;
+  }
 }
