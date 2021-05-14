@@ -1,5 +1,11 @@
 import { colorHex, colorRGB, colorHSL } from "./generators/color";
 import {
+  computerAddressIPV4,
+  computerAddressIPV6,
+  computerAddressMAC48,
+  computerAddressMAC64,
+} from "./generators/computer-address";
+import {
   countryName,
   countryISO3166alpha2,
   countryISO3166alpha3,
@@ -61,6 +67,18 @@ export function activate() {
   });
   nova.commands.register("random.colorHSL", (editor) => {
     insertAtPosition(editor, () => colorHSL());
+  });
+  nova.commands.register("random.computerAddressIPV4", (editor) => {
+    insertAtPosition(editor, () => computerAddressIPV4());
+  });
+  nova.commands.register("random.computerAddressIPV6", (editor) => {
+    insertAtPosition(editor, () => computerAddressIPV6());
+  });
+  nova.commands.register("random.computerAddressMAC48", (editor) => {
+    insertAtPosition(editor, () => computerAddressMAC48());
+  });
+  nova.commands.register("random.computerAddressMAC64", (editor) => {
+    insertAtPosition(editor, () => computerAddressMAC64());
   });
   nova.commands.register("random.countryName", (editor) => {
     insertAtPosition(editor, () => countryName());

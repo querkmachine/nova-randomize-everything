@@ -47,6 +47,32 @@
         "command": "random.numberFloat",
         "when": "editorHasFocus"
       },
+      {
+        "title": "Random binary integer",
+        "command": "random.numberBinary",
+        "when": "editorHasFocus"
+      },
+      { "separator": true },
+      {
+        "title": "Random IP address (v4)",
+        "command": "random.computerAddressIPV4",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random IP address (v6)",
+        "command": "random.computerAddressIPV6",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random MAC address (48-bit)",
+        "command": "random.computerAddressMAC48",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random MAC address (64-bit)",
+        "command": "random.computerAddressMAC64",
+        "when": "editorHasFocus"
+      },
       { "separator": true },
       {
         "title": "Random UUID (v4)",

@@ -9,7 +9,9 @@ Initial release with support for:
 - Floats
 - Hashes (MD5, SHA-1, SHA-256)
 - Integers
+- IP addresses (v4, v6)
 - Lorem Ipsum (sentences, paragraphs)
+- MAC addresses (48-bit, 64-bit)
 - Names (first, last, full)
 - Strings (alphabetical, alphanumeric, password-like)
 - UUID (v4)
