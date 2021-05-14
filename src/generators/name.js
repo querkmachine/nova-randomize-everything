@@ -1,12 +1,13 @@
+import { pickFromArray } from "./util/utilities";
 import { firstNames } from "../data/first-names";
 import { lastNames } from "../data/last-names";
 
 export function nameFirst() {
-  return firstNames[(firstNames.length * Math.random()) | 0];
+  return pickFromArray(firstNames);
 }
 
 export function nameLast() {
-  return lastNames[(lastNames.length * Math.random()) | 0];
+  return pickFromArray(lastNames);
 }
 
 export function nameFull() {

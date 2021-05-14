@@ -1,4 +1,4 @@
-import { generateNumber } from "./util/utilities";
+import { generateNumber, pickFromArray } from "./util/utilities";
 
 function randomDateTime() {
   const currentDate = new Date();
@@ -59,7 +59,7 @@ function timezone() {
       "+13:00",
       "+14:00",
     ];
-    return existingTimezones[(existingTimezones.length * Math.random()) | 0];
+    return pickFromArray(existingTimezones);
   }
 }
 
