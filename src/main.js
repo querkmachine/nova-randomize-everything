@@ -20,6 +20,7 @@ import { hashMD5, hashSHA1, hashSHA256 } from "./generators/hash";
 import { nameFirst, nameLast, nameFull } from "./generators/name";
 import { numberInt, numberFloat, numberBinary } from "./generators/number";
 import {
+  stringSingleLetter,
   stringAlphanumeric,
   stringAlphabetical,
   stringPassword,
@@ -174,6 +175,9 @@ export function activate() {
   });
   nova.commands.register("random.stringPassword", (editor) => {
     insertAtPosition(editor, () => stringPassword());
+  });
+  nova.commands.register("random.stringSingleLetter", (editor) => {
+    insertAtPosition(editor, () => stringSingleLetter());
   });
   nova.commands.register("random.stringLoremSentence", (editor) => {
     insertAtPosition(editor, () => stringLoremSentence());

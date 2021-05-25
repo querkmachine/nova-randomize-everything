@@ -27,6 +27,11 @@
         "when": "editorHasFocus"
       },
       {
+        "title": "Random letter",
+        "command": "random.stringSingleLetter",
+        "when": "editorHasFocus"
+      },
+      {
         "title": "Random sentence (Lorem Ipsum)",
         "command": "random.stringLoremSentence",
         "when": "editorHasFocus"
