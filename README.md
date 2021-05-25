@@ -9,6 +9,7 @@ Randomize Everything can currently generate:
 | Alphabetical string             | `YZPBTbERyWRLFejbgrVNcYIQuGmdrJio`                                   | String length                                         |
 | Alphanumeric string             | `sNuZ5MNpqBgyM93viq8Uo0kYo59aAOkm`                                   | String length                                         |
 | Password-like string            | `o<=4vz@V&IC'gfHFYM+'hzM"=<qd0K7E`                                   | String length                                         |
+| Single letter                   | `G`                                                                  |                                                       |
 | Sentence (Lorem Ipsum)          | `Id aliqua culpa incididunt voluptate pariatur nisi mollit[...]`     |                                                       |
 | Paragraph (Lorem Ipsum)         | `Ea reprehenderit nisi nisi ut officia sint ad fugiat officia[...]`  |                                                       |
 | Integer                         | `85`                                                                 | Number range                                          |
