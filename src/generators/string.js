@@ -31,3 +31,7 @@ export function stringPassword() {
     `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@£#$%^&*()_-+=[]{}\|;:'",.<>/?`
   );
 }
+
+export function stringSingleLetter() {
+  return generateString(1, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+}

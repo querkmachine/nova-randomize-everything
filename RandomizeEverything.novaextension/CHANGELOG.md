@@ -1,3 +1,7 @@
+## Version 1.1.0
+
+- Added single letter string generation.
+
 ## Version 1.0.0
 
 Initial release with support for:
