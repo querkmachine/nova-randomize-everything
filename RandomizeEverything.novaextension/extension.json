@@ -149,13 +149,8 @@
         "when": "editorHasFocus"
       },
       {
-        "title": "Random city",
+        "title": "Random city name",
         "command": "random.addressCity",
-        "when": "editorHasFocus"
-      },
-      {
-        "title": "Random UK postcode",
-        "command": "random.addressGBPostcode",
         "when": "editorHasFocus"
       },
       {
@@ -166,6 +161,11 @@
       {
         "title": "Random US state/territory code (USPS Addressing Standards)",
         "command": "random.addressUSStateCode",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random UK postcode",
+        "command": "random.addressGBPostcode",
         "when": "editorHasFocus"
       },
       {
