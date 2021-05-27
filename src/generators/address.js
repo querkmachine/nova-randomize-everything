@@ -68,3 +68,17 @@ export function addressUSZipCode() {
 export function addressUSZipCodePlus4() {
   return `${addressUSZipCode()}-${generateString(4, "0123456789")}`;
 }
+
+export function addressFullGB() {
+  return [addressStreet(), addressCity(), addressGBPostcode()].join(", ");
+}
+
+export function addressFullUS() {
+  return [
+    addressStreet(),
+    addressCity(),
+    `${Math.random() > 0.25 ? addressUSStateCode() : addressUSStateName()} ${
+      Math.random() > 0.25 ? addressUSZipCode() : addressUSZipCodePlus4()
+    }`,
+  ].join(", ");
+}

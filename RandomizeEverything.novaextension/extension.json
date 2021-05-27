@@ -134,6 +134,16 @@
       },
       { "separator": true },
       {
+        "title": "Random address (UK-style)",
+        "command": "random.addressFullGB",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random address (US-style)",
+        "command": "random.addressFullUS",
+        "when": "editorHasFocus"
+      },
+      {
         "title": "Random street address",
         "command": "random.addressStreet",
         "when": "editorHasFocus"

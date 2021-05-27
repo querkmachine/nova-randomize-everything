@@ -1,4 +1,6 @@
 import {
+  addressFullGB,
+  addressFullUS,
   addressStreet,
   addressCity,
   addressUSStateName,
@@ -70,6 +72,12 @@ function promptForInput(settings = {}) {
 }
 
 export function activate() {
+  nova.commands.register("random.addressFullGB", (editor) => {
+    insertAtPosition(editor, () => addressFullGB());
+  });
+  nova.commands.register("random.addressFullUS", (editor) => {
+    insertAtPosition(editor, () => addressFullUS());
+  });
   nova.commands.register("random.addressStreet", (editor) => {
     insertAtPosition(editor, () => addressStreet());
   });
