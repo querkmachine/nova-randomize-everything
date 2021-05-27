@@ -1,3 +1,8 @@
+import {
+  addressCity,
+  addressUSStateName,
+  addressUSStateCode,
+} from "./generators/address";
 import { colorHex, colorRGB, colorHSL } from "./generators/color";
 import {
   computerAddressIPV4,
@@ -61,6 +66,15 @@ function promptForInput(settings = {}) {
 }
 
 export function activate() {
+  nova.commands.register("random.addressCity", (editor) => {
+    insertAtPosition(editor, () => addressCity());
+  });
+  nova.commands.register("random.addressUSStateName", (editor) => {
+    insertAtPosition(editor, () => addressUSStateName());
+  });
+  nova.commands.register("random.addressUSStateCode", (editor) => {
+    insertAtPosition(editor, () => addressUSStateCode());
+  });
   nova.commands.register("random.colorHex", (editor) => {
     insertAtPosition(editor, () => colorHex());
   });

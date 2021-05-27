@@ -134,6 +134,22 @@
       },
       { "separator": true },
       {
+        "title": "Random city",
+        "command": "random.addressCity",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random US state/territory name",
+        "command": "random.addressUSStateName",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random US state/territory code (USPS Addressing Standards)",
+        "command": "random.addressUSStateCode",
+        "when": "editorHasFocus"
+      },
+      { "separator": true },
+      {
         "title": "Random country name",
         "command": "random.countryName",
         "when": "editorHasFocus"
