@@ -3,6 +3,7 @@ import {
   addressCity,
   addressUSStateName,
   addressUSStateCode,
+  addressGBPostcode,
   addressUSZipCode,
   addressUSZipCodePlus4,
 } from "./generators/address";
@@ -80,6 +81,9 @@ export function activate() {
   });
   nova.commands.register("random.addressUSStateCode", (editor) => {
     insertAtPosition(editor, () => addressUSStateCode());
+  });
+  nova.commands.register("random.addressGBPostcode", (editor) => {
+    insertAtPosition(editor, () => addressGBPostcode());
   });
   nova.commands.register("random.addressUSZipCode", (editor) => {
     insertAtPosition(editor, () => addressUSZipCode());
