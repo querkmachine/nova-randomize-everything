@@ -14,7 +14,9 @@ import {
 } from "./util/utilities";
 
 export function addressStreet() {
-  let addr = generateNumber(1, 100) + " ";
+  let addr = generateNumber(1, 100);
+  addr += Math.random() < 0.05 ? generateString(1, "ABCDEFG") : "";
+  addr += " ";
   addr += Math.random() < 0.1 ? pickFromArray(prefixes) + " " : "";
   addr += pickFromArray(names) + " " + pickFromArray(suffixes) + " ";
   addr += Math.random() < 0.1 ? pickFromArray(extraSuffixes) + " " : "";
