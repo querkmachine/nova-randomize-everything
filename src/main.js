@@ -2,6 +2,8 @@ import {
   addressCity,
   addressUSStateName,
   addressUSStateCode,
+  addressUSZipCode,
+  addressUSZipCodePlus4,
 } from "./generators/address";
 import { colorHex, colorRGB, colorHSL } from "./generators/color";
 import {
@@ -74,6 +76,12 @@ export function activate() {
   });
   nova.commands.register("random.addressUSStateCode", (editor) => {
     insertAtPosition(editor, () => addressUSStateCode());
+  });
+  nova.commands.register("random.addressUSZipCode", (editor) => {
+    insertAtPosition(editor, () => addressUSZipCode());
+  });
+  nova.commands.register("random.addressUSZipCodePlus4", (editor) => {
+    insertAtPosition(editor, () => addressUSZipCodePlus4());
   });
   nova.commands.register("random.colorHex", (editor) => {
     insertAtPosition(editor, () => colorHex());

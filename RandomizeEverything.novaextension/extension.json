@@ -148,6 +148,16 @@
         "command": "random.addressUSStateCode",
         "when": "editorHasFocus"
       },
+      {
+        "title": "Random ZIP Code",
+        "command": "random.addressUSZipCode",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random ZIP Code (ZIP+4)",
+        "command": "random.addressUSZipCodePlus4",
+        "when": "editorHasFocus"
+      },
       { "separator": true },
       {
         "title": "Random country name",
