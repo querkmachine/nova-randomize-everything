@@ -134,6 +134,11 @@
       },
       { "separator": true },
       {
+        "title": "Random street address",
+        "command": "random.addressStreet",
+        "when": "editorHasFocus"
+      },
+      {
         "title": "Random city",
         "command": "random.addressCity",
         "when": "editorHasFocus"

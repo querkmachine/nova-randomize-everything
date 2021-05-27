@@ -1,4 +1,5 @@
 import {
+  addressStreet,
   addressCity,
   addressUSStateName,
   addressUSStateCode,
@@ -68,6 +69,9 @@ function promptForInput(settings = {}) {
 }
 
 export function activate() {
+  nova.commands.register("random.addressStreet", (editor) => {
+    insertAtPosition(editor, () => addressStreet());
+  });
   nova.commands.register("random.addressCity", (editor) => {
     insertAtPosition(editor, () => addressCity());
   });
