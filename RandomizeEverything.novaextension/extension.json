@@ -59,6 +59,54 @@
       },
       { "separator": true },
       {
+        "title": "Random date (ISO-8601)",
+        "command": "random.dateISO8601",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random time (ISO-8601)",
+        "command": "random.timeISO8601",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random date and time (ISO-8601)",
+        "command": "random.datetimeISO8601",
+        "when": "editorHasFocus"
+      },
+      { "separator": true },
+      {
+        "title": "Random hex color",
+        "command": "random.colorHex",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random RGB color",
+        "command": "random.colorRGB",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random HSL color",
+        "command": "random.colorHSL",
+        "when": "editorHasFocus"
+      },
+      { "separator": true },
+      {
+        "title": "Random domain name",
+        "command": "random.webDomainName",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random web address",
+        "command": "random.webURL",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Random email address",
+        "command": "random.webEmail",
+        "when": "editorHasFocus"
+      },
+      { "separator": true },
+      {
         "title": "Random IP address (v4)",
         "command": "random.computerAddressIPV4",
         "when": "editorHasFocus"
@@ -102,38 +150,6 @@
       },
       { "separator": true },
       {
-        "title": "Random date (ISO-8601)",
-        "command": "random.dateISO8601",
-        "when": "editorHasFocus"
-      },
-      {
-        "title": "Random time (ISO-8601)",
-        "command": "random.timeISO8601",
-        "when": "editorHasFocus"
-      },
-      {
-        "title": "Random date and time (ISO-8601)",
-        "command": "random.datetimeISO8601",
-        "when": "editorHasFocus"
-      },
-      { "separator": true },
-      {
-        "title": "Random hex color",
-        "command": "random.colorHex",
-        "when": "editorHasFocus"
-      },
-      {
-        "title": "Random RGB color",
-        "command": "random.colorRGB",
-        "when": "editorHasFocus"
-      },
-      {
-        "title": "Random HSL color",
-        "command": "random.colorHSL",
-        "when": "editorHasFocus"
-      },
-      { "separator": true },
-      {
         "title": "Random address (UK-style)",
         "command": "random.addressFullGB",
         "when": "editorHasFocus"
@@ -149,17 +165,17 @@
         "when": "editorHasFocus"
       },
       {
-        "title": "Random city name",
+        "title": "Random city",
         "command": "random.addressCity",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random US state/territory name",
+        "title": "Random US state",
         "command": "random.addressUSStateName",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random US state/territory code (USPS Addressing Standards)",
+        "title": "Random US state code",
         "command": "random.addressUSStateCode",
         "when": "editorHasFocus"
       },
@@ -169,12 +185,12 @@
         "when": "editorHasFocus"
       },
       {
-        "title": "Random ZIP Code",
+        "title": "Random US ZIP Code",
         "command": "random.addressUSZipCode",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random ZIP Code (ZIP+4)",
+        "title": "Random US ZIP Code (ZIP+4)",
         "command": "random.addressUSZipCodePlus4",
         "when": "editorHasFocus"
       },
@@ -213,22 +229,6 @@
       {
         "title": "Random last name",
         "command": "random.nameLast",
-        "when": "editorHasFocus"
-      },
-      { "separator": true },
-      {
-        "title": "Random domain name",
-        "command": "random.webDomainName",
-        "when": "editorHasFocus"
-      },
-      {
-        "title": "Random web address",
-        "command": "random.webURL",
-        "when": "editorHasFocus"
-      },
-      {
-        "title": "Random email address",
-        "command": "random.webEmail",
         "when": "editorHasFocus"
       }
     ]
