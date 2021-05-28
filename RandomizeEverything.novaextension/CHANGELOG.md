@@ -1,3 +1,13 @@
+## Version 1.2.0
+
+- Added postal address generation, including:
+  - Full addresses (UK, US formats)
+  - Street addresses
+  - Cities
+  - US states (names, codes)
+  - UK postcodes
+  - US ZIP Codes (5 digit, ZIP+4)
+
 ## Version 1.1.0
 
 - Added single letter string generation.
