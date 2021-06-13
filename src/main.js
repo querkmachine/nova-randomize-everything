@@ -39,23 +39,21 @@ function insertAtPosition(editor, cb) {
 }
 
 function promptForInput(settings = {}) {
-  let request = new NotificationRequest(settings.id);
-  if (settings.title) request.title = nova.localize(settings.title);
-  if (settings.body) request.body = nova.localize(settings.body);
-  if (settings.value) request.textInputValue = settings.value;
-  if (settings.placeholder) request.textInputPlaceholder = settings.placeholder;
-  request.type = settings.secure ? "secure-input" : "input";
-  request.actions = [nova.localize("OK"), nova.localize("Cancel")];
-
-  let promise = nova.notifications.add(request);
-  promise.then(
-    (reply) => {
-      if (typeof reply.actionIdx !== "undefined" && reply.actionIdx === 0) {
-        settings.cb(reply.textInputValue);
-      }
+  const workspace = nova.workspace;
+  workspace.showInputPanel(
+    nova.localize(settings.body),
+    {
+      label: settings.title ? nova.localize(settings.title) : null,
+      placeholder: settings.placeholder || null,
+      value: settings.value || null,
+      secure: settings.secure ? true : false,
     },
-    (error) => {
-      console.log(error);
+    (reply) => {
+      if (reply) {
+        settings.cb(reply);
+      } else if (settings.fallbackValue) {
+        settings.cb(settings.fallbackValue);
+      }
     }
   );
 }
@@ -128,9 +126,10 @@ export function activate() {
     } else {
       promptForInput({
         id: "random.numberFloat",
-        title: "Enter number range.",
-        body: "Enter range separated by a dash.",
+        title: "Number range",
+        body: "Enter a lower and upper limit separated by a hyphen (e.g. 1-100).",
         placeholder: nova.config.get("random.defaultNumberRange", "string"),
+        fallbackValue: nova.config.get("random.defaultNumberRange", "string"),
         cb: (range) => {
           insertAtPosition(editor, () => numberFloat(range || null));
         },
@@ -143,9 +142,10 @@ export function activate() {
     } else {
       promptForInput({
         id: "random.numberInt",
-        title: "Enter number range.",
-        body: "Enter range separated by a dash.",
+        title: "Number range",
+        body: "Enter a lower and upper limit separated by a hyphen (e.g. 1-100).",
         placeholder: nova.config.get("random.defaultNumberRange", "string"),
+        fallbackValue: nova.config.get("random.defaultNumberRange", "string"),
         cb: (range) => {
           insertAtPosition(editor, () => numberInt(range || null));
         },
@@ -158,9 +158,10 @@ export function activate() {
     } else {
       promptForInput({
         id: "random.numberBinary",
-        title: "Enter number range.",
-        body: "Enter range separated by a dash.",
+        title: "Number range",
+        body: "Enter a lower and upper limit separated by a hyphen (e.g. 1-100).",
         placeholder: nova.config.get("random.defaultNumberRange", "string"),
+        fallbackValue: nova.config.get("random.defaultNumberRange", "string"),
         cb: (range) => {
           insertAtPosition(editor, () => numberBinary(range || null));
         },
