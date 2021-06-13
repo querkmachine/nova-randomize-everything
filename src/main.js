@@ -127,7 +127,7 @@ export function activate() {
       promptForInput({
         id: "random.numberFloat",
         title: "Number range",
-        body: "Enter a lower and upper limit separated by a hyphen (e.g. 1-100).",
+        body: "Enter a lower and upper limit separated by a comma (e.g. 1, 100).",
         placeholder: nova.config.get("random.defaultNumberRange", "string"),
         fallbackValue: nova.config.get("random.defaultNumberRange", "string"),
         cb: (range) => {
@@ -143,7 +143,7 @@ export function activate() {
       promptForInput({
         id: "random.numberInt",
         title: "Number range",
-        body: "Enter a lower and upper limit separated by a hyphen (e.g. 1-100).",
+        body: "Enter a lower and upper limit separated by a comma (e.g. 1, 100).",
         placeholder: nova.config.get("random.defaultNumberRange", "string"),
         fallbackValue: nova.config.get("random.defaultNumberRange", "string"),
         cb: (range) => {
@@ -159,7 +159,7 @@ export function activate() {
       promptForInput({
         id: "random.numberBinary",
         title: "Number range",
-        body: "Enter a lower and upper limit separated by a hyphen (e.g. 1-100).",
+        body: "Enter a lower and upper limit separated by a comma (e.g. 1, 100).",
         placeholder: nova.config.get("random.defaultNumberRange", "string"),
         fallbackValue: nova.config.get("random.defaultNumberRange", "string"),
         cb: (range) => {
