@@ -1,3 +1,20 @@
+## Version 1.2.0
+
+This update focuses on improving the user experience when generating random numbers.
+
+Previously you could only generate numbers equal to or higher than 0. Range values were prompted for input using a small, easy to miss notification at the top right of the window, and strictly required you to supply the range in the format "[min]-[max]" (`0-100`). This has been updated in a few ways:
+
+- The small notification has been replaced with a more prominently displayed modal.
+- The recommended way to separate min and max numbers is now a comma, rather than a hyphen. For example, `0, 10`.
+- You can put spaces between values in the list. `0,10`, `0, 10` and `0 , 10` work just the same.
+- You can now provide a value below zero to generate negative numbers. For example, `-10, 10` for numbers between -10 and 10.
+- You can now specify several comma-separated values, and the lowest and highest values will be determined automatically. For example, providing `-15, -46, 90, 8, 34, -36` will generate numbers between -46 and 90. Useful if you're copying and pasting from elsewhere.
+- Because of this, you can now specify the minimum and maximum values in any order. `10, -10` will work just the same as `-10, 10`.
+
+These changes apply to generating both integers and floats. Binary integer generation continues to only support positive integers.
+
+For backwards compatibility reasons, using a hyphen separator will still work but will only be able to generate positive numbers. You must use a comma if you want negative numbers.
+
 ## Version 1.1.0
 
 - Added single letter string generation.
