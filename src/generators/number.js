@@ -42,6 +42,12 @@ export function numberFloat(range) {
 
 export function numberBinary(range) {
   const { min, max } = parseRange(range);
+  if (min < 0) {
+    min = 0;
+  }
+  if (max < min) {
+    max = min;
+  }
   const stringLength = max.toString(2).length;
   return generateNumber(min, max).toString(2).padStart(stringLength, "0");
 }
