@@ -4,10 +4,24 @@ function parseRange(range) {
   range =
     range && typeof range !== "undefined"
       ? range
-      : nova.config.get("random.defaultNumberRange", "string") || "0-100";
-  range = range.split("-");
-  let min = Number(range[0] < 0 ? 0 : range[0]);
-  let max = Number(range[1] < min ? min : range[1]);
+      : nova.config.get("random.defaultNumberRange", "string") || "0,100";
+  if (range.includes(",")) {
+    range = range.split(/,/g);
+  } else {
+    range = range.split(/[\-–—]/g);
+  }
+  const sanitizedRange = range.filter((input) => {
+    if (!input) {
+      return false;
+    }
+    input = Number(input);
+    if (isNaN(input)) {
+      return false;
+    }
+    return true;
+  });
+  const min = Math.min(...sanitizedRange);
+  const max = Math.max(...sanitizedRange);
   return {
     min,
     max,

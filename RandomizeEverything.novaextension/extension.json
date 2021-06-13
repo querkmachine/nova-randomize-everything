@@ -218,10 +218,10 @@
         {
           "key": "random.defaultNumberRange",
           "title": "Default number range",
-          "description": "The default number range used when generating random numbers, written as two numbers separated by a dash (e.g. 0-100). Both numbers are inclusive.",
+          "description": "The default number range used when generating random numbers, written as two numbers separated by a comma (e.g. 0, 100). Both numbers are inclusive.",
           "type": "string",
-          "default": "0-100",
-          "placeholder": "0-100"
+          "default": "0,100",
+          "placeholder": "0,100"
         },
         {
           "key": "random.floatDecimalPlaces",
