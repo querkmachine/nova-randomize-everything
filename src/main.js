@@ -31,9 +31,10 @@ import { uuidV4 } from "./generators/uuid";
 import { webURL, webDomainName, webEmail } from "./generators/web";
 
 function insertAtPosition(editor, cb) {
+  const hasLineFeed = (editor.selectedText.slice(-1) === "\n");
   editor.edit((textEditor) => {
     editor.selectedRanges.reverse().forEach((range) => {
-      textEditor.replace(range, cb());
+      textEditor.replace(range, cb() + (hasLineFeed ? "\n" : ""));
     });
   });
 }

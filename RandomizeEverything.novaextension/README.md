@@ -2,7 +2,7 @@
 
 A [Nova](https://nova.app) extension that adds commands to randomly generate everything. Handy for placeholder and demo content.
 
-Once installed and activated, Randomize Everything can be accessed through the Command Palette (`View → Command Palette...` or `⇧ + ⌘ + P`) or as an option in the Editor menu (`Editor → Randomize Everything`).
+Once installed and activated, Randomize Everything can be accessed through the Command Palette (`View → Command Palette...` or `⇧ + ⌘ + P`), as an option in the Editor menu (`Editor → Randomize Everything`), or via the right-click context menu.
 
 Randomize Everything can currently generate:
 

@@ -1,6 +1,6 @@
 {
   "name": "nova-randomize-everything",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -28,6 +28,6 @@
     "rollup": "^2.47.0"
   },
   "dependencies": {
-    "lorem-ipsum": "^2.0.3"
+    "lorem-ipsum": "^2.0.8"
   }
 }
