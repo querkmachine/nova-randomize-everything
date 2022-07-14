@@ -1,3 +1,9 @@
+## Version 1.2.1
+
+This is a bugfix release, which fixes newline characters being removed if the right-click context menu is used to perform a replacement at the end of or on a blank line. Thanks to @colinfoster for [reporting this issue](https://github.com/querkmachine/nova-randomize-everything/issues/2) and suggesting a fix.
+
+The lorem-ipsum dependency was updated to resolve an issue with a circular dependency.
+
 ## Version 1.2.0
 
 This update focuses on improving the user experience when generating random numbers.
