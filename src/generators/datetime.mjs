@@ -1,6 +1,6 @@
 import { generateNumber, pickFromArray } from "./util/utilities";
 
-function randomDateTime({ minYear, maxYear } = {}) {
+function randomDateTime({ minYear = 1900, maxYear = 2100 } = {}) {
   const currentDate = new Date();
   const min = currentDate.setFullYear(minYear);
   const max = currentDate.setFullYear(maxYear);
