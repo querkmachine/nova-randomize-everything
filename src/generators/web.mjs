@@ -43,25 +43,32 @@ function emailLocalPart() {
   ).toLowerCase();
 }
 
+export function webDomainName({ domainExtensions = [] } = {}) {
+  const tlds = domainExtensions.length
+    ? domainExtensions
+    : defaultDomainExtensions;
+  return `${stripPunctuation(
+    lorem.generateWords(generateNumber(1, 3))
+  )}${pickFromArray(tlds)}`.toLowerCase();
+}
+
 export function webEmail({
+  domainExtensions = [],
   useRealEmailDomains = false,
-  domainExtensions = defaultDomainExtensions,
 } = {}) {
+  const tlds = domainExtensions.length
+    ? domainExtensions
+    : defaultDomainExtensions;
   const emailDomainPart = useRealEmailDomains
     ? pickFromArray(realEmailDomains)
-    : webDomainName({ domainExtensions });
+    : webDomainName({ domainExtensions: tlds });
   return `${emailLocalPart()}@${emailDomainPart}`.toLowerCase();
 }
 
-export function webDomainName({
-  domainExtensions = defaultDomainExtensions,
-} = {}) {
-  return `${stripPunctuation(
-    lorem.generateWords(generateNumber(1, 3))
-  )}${pickFromArray(domainExtensions)}`.toLowerCase();
-}
-
-export function webURL({ domainExtensions = defaultDomainExtensions } = {}) {
+export function webURL({ domainExtensions = [] } = {}) {
+  const tlds = domainExtensions.length
+    ? domainExtensions
+    : defaultDomainExtensions;
   let str = Math.random() > 0.5 ? "https" : "http";
   str += "://";
   str +=
@@ -70,7 +77,7 @@ export function webURL({ domainExtensions = defaultDomainExtensions } = {}) {
       : Math.random() > 0.5
       ? lorem.generateWords(1) + "."
       : "";
-  str += webDomainName({ domainExtensions });
+  str += webDomainName({ domainExtensions: tlds });
   str += "/" + lorem.generateWords(1);
   str += "/" + lorem.generateWords(1);
   str += "?" + lorem.generateWords(1) + "=" + lorem.generateWords(1);
