@@ -11,23 +11,23 @@ export function stringLoremParagraph() {
   return lorem.generateParagraphs(1);
 }
 
-export function stringAlphanumeric() {
+export function stringAlphanumeric({ length = 32 } = {}) {
   return generateString(
-    nova.config.get("random.stringLength", "number") || 32,
+    length,
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
   );
 }
 
-export function stringAlphabetical() {
+export function stringAlphabetical({ length = 32 } = {}) {
   return generateString(
-    nova.config.get("random.stringLength", "number") || 32,
+    length,
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
   );
 }
 
-export function stringPassword() {
+export function stringPassword({ length = 32 } = {}) {
   return generateString(
-    nova.config.get("random.stringLength", "number") || 32,
+    length,
     `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@£#$%^&*()_-+=[]{}\|;:'",.<>/?`
   );
 }

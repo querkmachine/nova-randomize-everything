@@ -1,31 +1,23 @@
 import { generateNumber } from "./util/utilities";
 
-export function colorHex() {
+export function colorHex({ capitalized = false } = {}) {
   const color =
     "#" + (Math.random() * 0xffffff * 1000000).toString(16).slice(0, 6);
-  return nova.config.get("random.hexColorCapitalize", "boolean")
+  return capitalized
     ? color.toUpperCase()
     : color;
 }
 
-export function colorRGB() {
+export function colorRGB({ cssFormatted = false } = {}) {
   const r = generateNumber(0, 255),
     g = generateNumber(0, 255),
     b = generateNumber(0, 255);
-  if (nova.config.get("random.colorsCSSFormatted", "boolean")) {
-    return `rgb(${r}, ${g}, ${b})`;
-  } else {
-    return `${r}, ${g}, ${b}`;
-  }
+  return cssFormatted ? `rgb(${r}, ${g}, ${b})` : `${r}, ${g}, ${b}`;
 }
 
-export function colorHSL() {
+export function colorHSL({ cssFormatted = false } = {}) {
   const h = generateNumber(0, 359),
     s = generateNumber(0, 100),
     l = generateNumber(0, 100);
-  if (nova.config.get("random.colorsCSSFormatted", "boolean")) {
-    return `hsl(${h}, ${s}%, ${l}%)`;
-  } else {
-    return `${h}, ${s}, ${l}`;
-  }
+  return cssFormatted ? `hsl(${h}, ${s}%, ${l}%)` : `${h}, ${s}, ${l}`;
 }

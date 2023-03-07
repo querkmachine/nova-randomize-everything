@@ -1,16 +1,12 @@
 import { generateNumber } from "./util/utilities";
 
-function parseRange(range) {
-  range =
-    range && typeof range !== "undefined"
-      ? range
-      : nova.config.get("random.defaultNumberRange", "string") || "0,100";
-  if (range.includes(",")) {
-    range = range.split(/,/g);
+function parseRange(rangeQuery) {
+  if (rangeQuery.includes(",")) {
+    rangeQuery = rangeQuery.split(/,/g);
   } else {
-    range = range.split(/[\-–—]/g);
+    rangeQuery = rangeQuery.split(/[\-–—]/g);
   }
-  const sanitizedRange = range.filter((input) => {
+  const sanitizedRange = rangeQuery.filter((input) => {
     if (!input) {
       return false;
     }
@@ -28,19 +24,17 @@ function parseRange(range) {
   };
 }
 
-export function numberInt(range) {
+export function numberInt({ range } = {}) {
   const { min, max } = parseRange(range);
   return String(generateNumber(min, max));
 }
 
-export function numberFloat(range) {
+export function numberFloat({ range, decimalPlaces = 5 } = {}) {
   const { min, max } = parseRange(range);
-  return (Math.random() * (min - max) + max).toFixed(
-    nova.config.get("random.floatDecimalPlaces", "number")
-  );
+  return (Math.random() * (min - max) + max).toFixed(decimalPlaces);
 }
 
-export function numberBinary(range) {
+export function numberBinary({ range } = {}) {
   const { min, max } = parseRange(range);
   if (min < 0) {
     min = 0;
