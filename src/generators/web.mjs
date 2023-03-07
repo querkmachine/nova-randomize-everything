@@ -21,9 +21,7 @@ const realEmailDomains = [
   "icloud.com",
 ];
 
-const domainExtensions = nova.config.get("random.domainTLDs", "array").length
-  ? nova.config.get("random.domainTLDs", "array")
-  : [".com", ".net", ".org"];
+const defaultDomainExtensions = [".com", ".net", ".org"];
 
 function stripPunctuation(str) {
   return str.replace(/[\W_]+/g, "");
@@ -45,25 +43,32 @@ function emailLocalPart() {
   ).toLowerCase();
 }
 
-function emailDomainPart() {
-  if (nova.config.get("random.useRealEmailDomains", "boolean")) {
-    return pickFromArray(realEmailDomains);
-  } else {
-    return webDomainName();
-  }
-}
-
-export function webEmail() {
-  return `${emailLocalPart()}@${emailDomainPart()}`.toLowerCase();
-}
-
-export function webDomainName() {
+export function webDomainName({ domainExtensions = [] } = {}) {
+  const tlds = domainExtensions.length
+    ? domainExtensions
+    : defaultDomainExtensions;
   return `${stripPunctuation(
     lorem.generateWords(generateNumber(1, 3))
-  )}${pickFromArray(domainExtensions)}`.toLowerCase();
+  )}${pickFromArray(tlds)}`.toLowerCase();
 }
 
-export function webURL() {
+export function webEmail({
+  domainExtensions = [],
+  useRealEmailDomains = false,
+} = {}) {
+  const tlds = domainExtensions.length
+    ? domainExtensions
+    : defaultDomainExtensions;
+  const emailDomainPart = useRealEmailDomains
+    ? pickFromArray(realEmailDomains)
+    : webDomainName({ domainExtensions: tlds });
+  return `${emailLocalPart()}@${emailDomainPart}`.toLowerCase();
+}
+
+export function webURL({ domainExtensions = [] } = {}) {
+  const tlds = domainExtensions.length
+    ? domainExtensions
+    : defaultDomainExtensions;
   let str = Math.random() > 0.5 ? "https" : "http";
   str += "://";
   str +=
@@ -72,7 +77,7 @@ export function webURL() {
       : Math.random() > 0.5
       ? lorem.generateWords(1) + "."
       : "";
-  str += webDomainName();
+  str += webDomainName({ domainExtensions: tlds });
   str += "/" + lorem.generateWords(1);
   str += "/" + lorem.generateWords(1);
   str += "?" + lorem.generateWords(1) + "=" + lorem.generateWords(1);

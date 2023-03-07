@@ -1,7 +1,7 @@
 export function uuidV4() {
   // if nova.crypto is available, use it
-  if("crypto" in nova) {
-    return nova.crypto.randomUUID().toLowerCase()
+  if (typeof nova === "object" && "crypto" in nova) {
+    return nova.crypto.randomUUID().toLowerCase();
   }
 
   // if not, generate one manually

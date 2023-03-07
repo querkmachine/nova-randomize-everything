@@ -1,19 +1,13 @@
 import { generateNumber, pickFromArray } from "./util/utilities";
 
-function randomDateTime() {
+function randomDateTime({ minYear = 1900, maxYear = 2100 } = {}) {
   const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  const min = currentDate.setFullYear(
-    nova.config.get("random.yearMin", "number") || currentYear - 25
-  );
-  const max = currentDate.setFullYear(
-    nova.config.get("random.yearMax", "number") || currentYear + 25
-  );
+  const min = currentDate.setFullYear(minYear);
+  const max = currentDate.setFullYear(maxYear);
   return new Date(+min + Math.random() * (max - min)).toISOString();
 }
 
-function timezone() {
-  const configOption = nova.config.get("random.generateTimezones", "string");
+function timezone(configOption) {
   if (configOption === "none") {
     return "";
   } else if (configOption === "utc") {
@@ -63,14 +57,17 @@ function timezone() {
   }
 }
 
-export function dateISO8601() {
-  return randomDateTime().slice(0, 10);
+export function dateISO8601({ minYear, maxYear } = {}) {
+  return randomDateTime({ minYear, maxYear }).slice(0, 10);
 }
 
-export function timeISO8601() {
-  return randomDateTime().slice(11, 19);
+export function timeISO8601({ minYear, maxYear } = {}) {
+  return randomDateTime({ minYear, maxYear }).slice(11, 19);
 }
 
-export function datetimeISO8601() {
-  return `${dateISO8601()}T${timeISO8601()}${timezone()}`;
+export function datetimeISO8601({ minYear, maxYear, timezoneType } = {}) {
+  return `${dateISO8601({ minYear, maxYear })}T${timeISO8601({
+    minYear,
+    maxYear,
+  })}${timezone(timezoneType)}`;
 }
