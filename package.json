@@ -2,7 +2,8 @@
   "name": "nova-randomize-everything",
   "version": "1.2.2",
   "description": "",
-  "main": "main.js",
+  "main": "main.mjs",
+  "type": "module",
   "scripts": {
     "build": "rollup -c",
     "watch": "onchange -i \"src/**\" \"rollup.*.js\" -- npm run build",
