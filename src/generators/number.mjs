@@ -1,6 +1,6 @@
 import { generateNumber } from "./util/utilities";
 
-function parseRange(rangeQuery) {
+function parseRange(rangeQuery = "0,100") {
   if (rangeQuery.includes(",")) {
     rangeQuery = rangeQuery.split(/,/g);
   } else {
