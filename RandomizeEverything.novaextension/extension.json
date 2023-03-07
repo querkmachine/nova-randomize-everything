@@ -3,7 +3,7 @@
   "name": "Randomize Everything",
   "organization": "querkmachine",
   "description": "Generate random placeholder content anywhere.",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "repository": "https://github.com/querkmachine/nova-randomize-everything",
   "bugs": "https://github.com/querkmachine/nova-randomize-everything/issues",
   "license": "MIT",

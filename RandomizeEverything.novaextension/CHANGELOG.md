@@ -1,3 +1,9 @@
+## Version 1.2.2
+
+Nova 10+ now uses the native `nova.crypto.randomUUID` method when generating random UUIDs. Older versions of Nova continue to use the existing generator.
+
+Some build-time dependencies have also been updated to the most recent versions.
+
 ## Version 1.2.1
 
 This is a bugfix release, which fixes newline characters being removed if the right-click context menu is used to perform a replacement at the end of or on a blank line. Thanks to @colinfoster for [reporting this issue](https://github.com/querkmachine/nova-randomize-everything/issues/2) and suggesting a fix.
