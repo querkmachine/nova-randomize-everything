@@ -94,7 +94,14 @@ export function activate() {
     insertAtPosition(editor, () => computerAddressMAC64());
   });
   nova.commands.register("random.countryName", (editor) => {
-    insertAtPosition(editor, () => countryName());
+    insertAtPosition(editor, () =>
+      countryName({
+        useShortCountryNames: nova.config.get(
+          "random.useShortCountryNames",
+          "boolean"
+        ),
+      })
+    );
   });
   nova.commands.register("random.countryISO3166alpha2", (editor) => {
     insertAtPosition(editor, () => countryISO3166alpha2());

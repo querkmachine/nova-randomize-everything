@@ -296,6 +296,19 @@
     },
     {
       "type": "section",
+      "title": "Countries",
+      "children": [
+        {
+          "key": "random.useShortCountryNames",
+          "title": "Use short country names where possible",
+          "description": "Uses shorter or more commonly recognised country names where they're available. For example, 'United Kingdom' instead of 'United Kingdom of Great Britain and Northern Ireland'.",
+          "type": "boolean",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "section",
       "title": "Web",
       "children": [
         {
