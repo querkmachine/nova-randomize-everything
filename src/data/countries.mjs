@@ -26,7 +26,7 @@ export const countries = [
   { name: "Bermuda", alpha2: "BM", alpha3: "BMU", numeric: "060" },
   { name: "Bhutan", alpha2: "BT", alpha3: "BTN", numeric: "064" },
   {
-    name: "Bolivia (Plurinational State of)",
+    name: "Bolivia, Plurinational State of",
     nameShort: "Bolivia",
     alpha2: "BO",
     alpha3: "BOL",
@@ -162,7 +162,7 @@ export const countries = [
   { name: "India", alpha2: "IN", alpha3: "IND", numeric: "356" },
   { name: "Indonesia", alpha2: "ID", alpha3: "IDN", numeric: "360" },
   {
-    name: "Iran (Islamic Republic of)",
+    name: "Iran, Islamic Republic of",
     nameShort: "Iran",
     alpha2: "IR",
     alpha3: "IRN",
@@ -181,7 +181,7 @@ export const countries = [
   { name: "Kenya", alpha2: "KE", alpha3: "KEN", numeric: "404" },
   { name: "Kiribati", alpha2: "KI", alpha3: "KIR", numeric: "296" },
   {
-    name: "Korea (Democratic People's Republic of)",
+    name: "Korea, Democratic People's Republic of",
     nameShort: "North Korea",
     alpha2: "KP",
     alpha3: "PRK",
@@ -225,7 +225,7 @@ export const countries = [
   { name: "Mayotte", alpha2: "YT", alpha3: "MYT", numeric: "175" },
   { name: "Mexico", alpha2: "MX", alpha3: "MEX", numeric: "484" },
   {
-    name: "Micronesia (Federated States of)",
+    name: "Micronesia, Federated States of",
     nameShort: "Micronesia",
     alpha2: "FM",
     alpha3: "FSM",
@@ -430,7 +430,7 @@ export const countries = [
   { name: "Vanuatu", alpha2: "VU", alpha3: "VUT", numeric: "548" },
   { name: "Vatican City", alpha2: "VA", alpha3: "VAT", numeric: "336" },
   {
-    name: "Venezuela (Bolivarian Republic of)",
+    name: "Venezuela, Bolivarian Republic of",
     nameShort: "Venezuela",
     alpha2: "VE",
     alpha3: "VEN",
