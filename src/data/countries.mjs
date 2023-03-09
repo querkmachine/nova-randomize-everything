@@ -393,7 +393,7 @@ export const countries = [
   { name: "Tonga", alpha2: "TO", alpha3: "TON", numeric: "776" },
   { name: "Trinidad and Tobago", alpha2: "TT", alpha3: "TTO", numeric: "780" },
   { name: "Tunisia", alpha2: "TN", alpha3: "TUN", numeric: "788" },
-  { name: "Turkey", alpha2: "TR", alpha3: "TUR", numeric: "792" },
+  { name: "Türkiye", alpha2: "TR", alpha3: "TUR", numeric: "792" },
   { name: "Turkmenistan", alpha2: "TM", alpha3: "TKM", numeric: "795" },
   {
     name: "Turks and Caicos Islands",
