@@ -306,11 +306,47 @@
           "default": [".com", ".net", ".org"]
         },
         {
-          "key": "random.useRealEmailDomains",
-          "title": "Use real email domains",
-          "description": "Uses the domain names of actual email providers instead of creating random domain names.",
-          "type": "boolean",
-          "default": false
+          "type": "section",
+          "title": "Web address",
+          "children": [
+            {
+              "key": "random.urlsIncludeSubdomains",
+              "title": "Web addresses can generate with subdomains.",
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "key": "random.urlsIncludeFilePaths",
+              "title": "Web addresses can generate with file and directory paths.",
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "key": "random.urlsIncludeQueryStrings",
+              "title": "Web addresses can generate with query strings.",
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "key": "random.urlsIncludeHashes",
+              "title": "Web addresses can generate with hashes.",
+              "type": "boolean",
+              "default": true
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "title": "Email address",
+          "children": [
+            {
+              "key": "random.useRealEmailDomains",
+              "title": "Use real email domains",
+              "description": "Uses the domain names of actual email providers instead of creating random domain names.",
+              "type": "boolean",
+              "default": false
+            }
+          ]
         }
       ]
     }
