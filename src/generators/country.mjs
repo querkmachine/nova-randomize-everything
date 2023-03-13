@@ -1,8 +1,9 @@
 import { countries } from "../data/countries";
 import { pickFromArray } from "./util/utilities";
 
-export function countryName() {
-  return pickFromArray(countries).name;
+export function countryName({ useShortCountryNames = false } = {}) {
+  const c = pickFromArray(countries);
+  return useShortCountryNames ? c.nameShort || c.name : c.name;
 }
 
 export function countryISO3166alpha2() {

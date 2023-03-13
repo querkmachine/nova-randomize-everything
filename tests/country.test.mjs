@@ -13,6 +13,26 @@ describe("country", () => {
       const countryNames = countries.map((i) => i.name);
       repeat(5, () => expect(countryNames).toContain(countryName()));
     });
+
+    it("selects a valid country name - short names", () => {
+      const countryNamesShort = countries.map((i) => i.nameShort);
+      const config = { useShortCountryNames: true };
+      // This is a bit of a weird one, as we're testing something that's only
+      // applicable against a small subset of our randomly selected data.
+      //
+      // Basically, we keep rolling the dice until we get one that we know has
+      // a nameShort version (aka, it's in the `countryNamesShort` array), then
+      // make sure that it returned the short name. Does that make sense?
+      // I'm not sure myself.
+      repeat(5, () => {
+        const roll = () => countryName(config);
+        let c = roll();
+        while (!countryNamesShort.includes(c)) {
+          c = roll();
+        }
+        return expect(countryNamesShort).toContain(c);
+      });
+    });
   });
 
   describe("countryISO3166alpha2", () => {
