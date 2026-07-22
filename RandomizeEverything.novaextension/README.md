@@ -6,7 +6,7 @@ Randomize Everything is a Nova extension that adds commands to randomly generate
 
 Once installed and activated, Randomize Everything can be accessed several ways:
 
-- Through the Command Palette, my personal favourite ('View' and 'Command Palette...' in the menu, <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd>).
+- Through the Command Palette, my personal favourite ('View' and 'Command Palette...' in the menu, <kbd>⌘ Command</kbd> + <kbd>⇧ Shift</kbd> + <kbd>P</kbd> by default).
 - As an option in the Editor menu ('Editor' and 'Randomize Everything'), when a compatible document is open.
 - Via the right-click context menu, when a compatible document is open.
 

@@ -1,41 +1,64 @@
 import { repeat } from "./util/helpers";
-import {
-  dateISO8601,
-  timeISO8601,
-  datetimeISO8601,
-} from "../src/generators/datetime";
+import { date, time, datetimeISO8601 } from "../src/generators/datetime";
 
-const dateRegex = "[0-9]{4}-[0-9]{2}-[0-9]{2}";
-const timeRegex = "[0-9]{2}:[0-9]{2}:[0-9]{2}";
+const isoDateRegex = "[0-9]{4}-[0-9]{2}-[0-9]{2}";
+const ddmmDateRegex = "[0-9]{2}/[0-9]{2}/[0-9]{4}";
+
+const secondsRegex = ":[0-9]{2}";
+
+const h24TimeRegex = "[0-9]{2}:[0-9]{2}";
+const h24TimeWithSecondsRegex = `${h24TimeRegex}${secondsRegex}`;
+const h24TimeWithoutSecondsRegex = h24TimeRegex;
+
+const h12TimeSuffixRegex = " [a|p]\.m\.";
+const h12TimeRegex = `[0-9]{1,2}:[0-9]{2}`;
+const h12TimeWithSecondsRegex = `${h12TimeRegex}${secondsRegex}${h12TimeSuffixRegex}`;
+const h12TimeWithoutSecondsRegex = `${h12TimeRegex}${h12TimeSuffixRegex}`;
+
 const zoneRegex = "[+-][0-9]{2}:[0-9]{2}";
 
 describe("datetime", () => {
-  describe("dateISO8601", () => {
+  describe("date", () => {
     it("generates valid dates", () => {
       repeat(5, () => {
-        const date = Date.parse(dateISO8601());
-        return expect(date).not.toBeNaN();
+        const result = Date.parse(date());
+        return expect(result).not.toBeNaN();
       });
     });
 
     it("generates dates that are ISO-8601 formatted", () => {
-      const regex = new RegExp(`^${dateRegex}$`);
-      repeat(5, () => expect(dateISO8601()).toMatch(regex));
+      const regex = new RegExp(`^${isoDateRegex}$`);
+      const config = { format: "iso " };
+      repeat(5, () => expect(date(config)).toMatch(regex));
+    });
+
+    it("generates dates that are DD/MM/YYYY formatted", () => {
+      const regex = new RegExp(`^${ddmmDateRegex}$`);
+      const config = { format: "ddmmyyyy" };
+      repeat(5, () => expect(date(config)).toMatch(regex));
+    });
+
+    it("generates dates that are MM/DD/YYYY formatted", () => {
+      const regex = new RegExp(`^${ddmmDateRegex}$`);
+      const config = { format: "mmddyyyy" };
+      repeat(5, () => expect(date(config)).toMatch(regex));
     });
 
     it("generates dates within a given range - minYear, maxYear", () => {
       const config = { minYear: 2000, maxYear: 2000 };
       repeat(5, () => {
-        const year = dateISO8601(config).substring(0, 4);
+        const year = date(config).substring(0, 4);
         return expect(year).toBe("2000");
       });
     });
   });
 
-  describe("timeISO8601", () => {
+  describe("time", () => {
     it("generates valid times", () => {
+      const config = { format: "24hour", includeSeconds: true };
+
       repeat(5, () => {
-        const timePieces = timeISO8601().split(":");
+        const timePieces = time(config).split(":");
         const hours = timePieces[0] >= 0 && timePieces[0] < 24;
         const minutes = timePieces[1] >= 0 && timePieces[1] < 60;
         const seconds = timePieces[2] >= 0 && timePieces[2] < 60;
@@ -47,9 +70,28 @@ describe("datetime", () => {
       });
     });
 
-    it("generates times that are ISO-8601 formatted", () => {
-      const regex = new RegExp(`^${timeRegex}$`);
-      repeat(5, () => expect(timeISO8601()).toMatch(regex));
+    it("generates times that are 24 hour formatted (with seconds)", () => {
+      const regex = new RegExp(`^${h24TimeWithSecondsRegex}$`);
+      const config = { format: "24hour", includeSeconds: true };
+      repeat(5, () => expect(time(config)).toMatch(regex));
+    });
+
+    it("generates times that are 24 hour formatted (without seconds)", () => {
+      const regex = new RegExp(`^${h24TimeWithoutSecondsRegex}$`);
+      const config = { format: "24hour", includeSeconds: false };
+      repeat(5, () => expect(time(config)).toMatch(regex));
+    });
+
+    it("generates times that are 12 hour formatted (with seconds)", () => {
+      const regex = new RegExp(`^${h12TimeWithSecondsRegex}$`);
+      const config = { format: "12hour", includeSeconds: true };
+      repeat(5, () => expect(time(config)).toMatch(regex));
+    });
+
+    it("generates times that are 12 hour formatted (without seconds)", () => {
+      const regex = new RegExp(`^${h12TimeWithoutSecondsRegex}$`);
+      const config = { format: "12hour", includeSeconds: false };
+      repeat(5, () => expect(time(config)).toMatch(regex));
     });
   });
 
@@ -62,19 +104,21 @@ describe("datetime", () => {
     });
 
     it("generates datetimes that are ISO-8601 formatted", () => {
-      const regex = new RegExp(`^${dateRegex}T${timeRegex}$`);
+      const regex = new RegExp(`^${isoDateRegex}T${h24TimeWithSecondsRegex}$`);
       const config = { timezoneType: "none" };
       repeat(5, () => expect(datetimeISO8601(config)).toMatch(regex));
     });
 
     it("generates datetimes with timezones - UTC timezone", () => {
-      const regex = new RegExp(`^${dateRegex}T${timeRegex}Z$`);
+      const regex = new RegExp(`^${isoDateRegex}T${h24TimeWithSecondsRegex}Z$`);
       const config = { timezoneType: "utc" };
       repeat(5, () => expect(datetimeISO8601(config)).toMatch(regex));
     });
 
     it("generates datetimes with timezones - random offset", () => {
-      const regex = new RegExp(`^${dateRegex}T${timeRegex}${zoneRegex}$`);
+      const regex = new RegExp(
+        `^${isoDateRegex}T${h24TimeWithSecondsRegex}${zoneRegex}$`,
+      );
       const config = { timezoneType: "full" };
       repeat(5, () => expect(datetimeISO8601(config)).toMatch(regex));
     });
