@@ -1,3 +1,19 @@
+## Version 1.3.0
+
+Long time no see!
+
+This release adds a few more options for generating dates and times, including settings for generating:
+
+- YYYY-MM-DD, DD/MM/YYYY or MM/DD/YYYY date formats
+- 24-hour or 12-hour time formats
+- times without seconds
+
+All of those options are in Nova's extension settings panel. Extended information for each of them are on [the wiki](https://github.com/querkmachine/nova-randomize-everything/wiki).
+
+This release also renames some of Randomize Everything's menu options to use less technical jargon, which hopefully makes the options easier to understand at a glance (maybe, hopefully).
+
+Also some very overdue dependency updates.
+
 ## Version 1.2.2
 
 Nova 10+ now uses the native `nova.crypto.randomUUID` method when generating random UUIDs. Older versions of Nova continue to use the existing generator.
