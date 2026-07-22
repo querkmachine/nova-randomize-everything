@@ -30,9 +30,9 @@ Head over to the wiki to find [examples of what each generator outputs when used
   - Random sentence (Lorem Ipsum)
   - Random paragraph (Lorem Ipsum)
 - Numbers
-  - Random integer
-  - Random number
-  - Random binary integer
+  - Random whole number (integer)
+  - Random decimal number (float)
+  - Random binary number (integer)
 - Machine addresses
   - Random IP address (v4)
   - Random IP address (v6)
@@ -45,22 +45,22 @@ Head over to the wiki to find [examples of what each generator outputs when used
   - Random SHA-1 hash
   - Random SHA-265 hash
 - Dates and times
-  - Random date (ISO-8601)
-  - Random time (ISO-8601)
-  - Random date and time (ISO-8601)
+  - Random date (YYYY-MM-DD)
+  - Random time (HH:MM:SS)
+  - Random date and time
 - Colors
-  - Random hex color
+  - Random hexadecimal color
   - Random RGB color
   - Random HSL color
 - Countries
   - Random country name
-  - Random country code (ISO-3166 alpha-2)
-  - Random country code (ISO-3166 alpha-3)
-  - Random country code (ISO-3166 numeric)
+  - Random country code (ISO 3166 alpha-2)
+  - Random country code (ISO 3166 alpha-3)
+  - Random country code (ISO 3166 numeric)
 - Names
   - Random full name
-  - Random first name
-  - Random last name
+  - Random given name
+  - Random family name
 - Web
   - Random domain name
   - Random web address

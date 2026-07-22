@@ -3,7 +3,7 @@
   "name": "Randomize Everything",
   "organization": "querkmachine",
   "description": "Generate random placeholder content anywhere.",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "repository": "https://github.com/querkmachine/nova-randomize-everything",
   "bugs": "https://github.com/querkmachine/nova-randomize-everything/issues",
   "license": "MIT",
@@ -43,28 +43,28 @@
       },
       { "separator": true },
       {
-        "title": "Random integer",
+        "title": "Random whole number",
         "command": "random.numberInt",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random float",
+        "title": "Random decimal number",
         "command": "random.numberFloat",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random binary integer",
+        "title": "Random binary number",
         "command": "random.numberBinary",
         "when": "editorHasFocus"
       },
       { "separator": true },
       {
-        "title": "Random IP address (v4)",
+        "title": "Random IPv4 address",
         "command": "random.computerAddressIPV4",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random IP address (v6)",
+        "title": "Random IPv6 address",
         "command": "random.computerAddressIPV6",
         "when": "editorHasFocus"
       },
@@ -102,23 +102,23 @@
       },
       { "separator": true },
       {
-        "title": "Random date (ISO-8601)",
+        "title": "Random date (YYYY-MM-DD)",
         "command": "random.dateISO8601",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random time (ISO-8601)",
+        "title": "Random time (HH:MM:SS)",
         "command": "random.timeISO8601",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random date and time (ISO-8601)",
+        "title": "Random date and time",
         "command": "random.datetimeISO8601",
         "when": "editorHasFocus"
       },
       { "separator": true },
       {
-        "title": "Random hex color",
+        "title": "Random hexadecimal color",
         "command": "random.colorHex",
         "when": "editorHasFocus"
       },
@@ -139,17 +139,17 @@
         "when": "editorHasFocus"
       },
       {
-        "title": "Random country code (ISO-3166 alpha-2)",
+        "title": "Random country code (ISO 3166 alpha-2)",
         "command": "random.countryISO3166alpha2",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random country code (ISO-3166 alpha-3)",
+        "title": "Random country code (ISO 3166 alpha-3)",
         "command": "random.countryISO3166alpha3",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random country code (ISO-3166 numeric)",
+        "title": "Random country code (ISO 3166 numeric)",
         "command": "random.countryISO3166numeric",
         "when": "editorHasFocus"
       },
@@ -160,12 +160,12 @@
         "when": "editorHasFocus"
       },
       {
-        "title": "Random first name",
+        "title": "Random given name",
         "command": "random.nameFirst",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random last name",
+        "title": "Random family name",
         "command": "random.nameLast",
         "when": "editorHasFocus"
       },
