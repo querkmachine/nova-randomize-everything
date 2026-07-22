@@ -23,11 +23,11 @@
   },
   "homepage": "https://github.com/querkmachine/nova-randomize-everything#readme",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "jest": "^30.4.2",
     "onchange": "^7.1.0",
-    "rollup": "^3.18.0"
+    "rollup": "^4.62.2"
   },
   "dependencies": {
     "lorem-ipsum": "^3.0.0"
