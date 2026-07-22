@@ -57,17 +57,55 @@ function timezone(configOption) {
   }
 }
 
-export function dateISO8601({ minYear, maxYear } = {}) {
-  return randomDateTime({ minYear, maxYear }).slice(0, 10);
+export function time({ minYear, maxYear, format, includeSeconds } = {}) {
+  const randomTime = randomDateTime({ minYear, maxYear }).slice(
+    11,
+    includeSeconds ? 19 : 16,
+  );
+
+  switch (format) {
+    case "12hour":
+      const rawHour = Number(randomTime.slice(0, 2));
+      let formatHour = rawHour;
+
+      if (rawHour === 0) {
+        formatHour = 12;
+      } else if (rawHour > 12) {
+        formatHour = Math.floor(rawHour / 2);
+      }
+
+      return `${formatHour}${randomTime.slice(2)} ${rawHour >= 12 ? "p.m." : "a.m."}`;
+      break;
+    case "24hour":
+    default:
+      return randomTime;
+      break;
+  }
 }
 
-export function timeISO8601({ minYear, maxYear } = {}) {
-  return randomDateTime({ minYear, maxYear }).slice(11, 19);
+export function date({ minYear, maxYear, format } = {}) {
+  const randomDate = randomDateTime({ minYear, maxYear }).slice(0, 10);
+  const dateParts = randomDate.split("-");
+
+  switch (format) {
+    case "ddmmyyyy":
+      return `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+      break;
+    case "mmddyyyy":
+      return `${dateParts[1]}/${dateParts[2]}/${dateParts[0]}`;
+      break;
+    case "iso":
+    default:
+      return randomDate;
+      break;
+  }
 }
 
 export function datetimeISO8601({ minYear, maxYear, timezoneType } = {}) {
-  return `${dateISO8601({ minYear, maxYear })}T${timeISO8601({
+  return `${date({ minYear, maxYear, format: "iso" })}T${time({
     minYear,
     maxYear,
+    format: "24hour",
+    includeSeconds: true,
   })}${timezone(timezoneType)}`;
 }

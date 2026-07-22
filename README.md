@@ -45,9 +45,9 @@ Head over to the wiki to find [examples of what each generator outputs when used
   - Random SHA-1 hash
   - Random SHA-265 hash
 - Dates and times
-  - Random date (YYYY-MM-DD)
-  - Random time (HH:MM:SS)
-  - Random date and time
+  - Random date
+  - Random time
+  - Random date and time (ISO-8601)
 - Colors
   - Random hexadecimal color
   - Random RGB color

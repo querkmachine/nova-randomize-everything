@@ -12,8 +12,8 @@ import {
   countryISO3166numeric,
 } from "./generators/country";
 import {
-  dateISO8601,
-  timeISO8601,
+  date as datestamp,
+  time as timestamp,
   datetimeISO8601,
 } from "./generators/datetime";
 import { hashMD5, hashSHA1, hashSHA256 } from "./generators/hash";
@@ -55,7 +55,7 @@ function promptForInput(settings = {}) {
       } else if (settings.fallbackValue) {
         settings.cb(settings.fallbackValue);
       }
-    }
+    },
   );
 }
 
@@ -64,21 +64,21 @@ export function activate() {
     insertAtPosition(editor, () =>
       colorHex({
         capitalized: nova.config.get("random.hexColorCapitalize", "boolean"),
-      })
+      }),
     );
   });
   nova.commands.register("random.colorRGB", (editor) => {
     insertAtPosition(editor, () =>
       colorRGB({
         cssFormatted: nova.config.get("random.colorsCSSFormatted", "boolean"),
-      })
+      }),
     );
   });
   nova.commands.register("random.colorHSL", (editor) => {
     insertAtPosition(editor, () =>
       colorHSL({
         cssFormatted: nova.config.get("random.colorsCSSFormatted", "boolean"),
-      })
+      }),
     );
   });
   nova.commands.register("random.computerAddressIPV4", (editor) => {
@@ -112,20 +112,23 @@ export function activate() {
   nova.commands.register("random.countryISO3166numeric", (editor) => {
     insertAtPosition(editor, () => countryISO3166numeric());
   });
-  nova.commands.register("random.dateISO8601", (editor) => {
+  nova.commands.register("random.date", (editor) => {
     insertAtPosition(editor, () =>
-      dateISO8601({
+      datestamp({
         minYear: nova.config.get("random.yearMin", "number"),
         maxYear: nova.config.get("random.yearMax", "number"),
-      })
+        format: nova.config.get("random.dateFormat", "string"),
+      }),
     );
   });
-  nova.commands.register("random.timeISO8601", (editor) => {
+  nova.commands.register("random.time", (editor) => {
     insertAtPosition(editor, () =>
-      timeISO8601({
+      timestamp({
         minYear: nova.config.get("random.yearMin", "number"),
         maxYear: nova.config.get("random.yearMax", "number"),
-      })
+        format: nova.config.get("random.timeFormat", "string"),
+        includeSeconds: nova.config.get("random.timeIncludeSeconds", "boolean"),
+      }),
     );
   });
   nova.commands.register("random.datetimeISO8601", (editor) => {
@@ -134,7 +137,7 @@ export function activate() {
         minYear: nova.config.get("random.yearMin", "number"),
         maxYear: nova.config.get("random.yearMax", "number"),
         timezoneType: nova.config.get("random.generateTimezones", "string"),
-      })
+      }),
     );
   });
   nova.commands.register("random.hashMD5", (editor) => {
@@ -160,7 +163,7 @@ export function activate() {
       insertAtPosition(editor, () =>
         numberFloat({
           range: nova.config.get("random.defaultNumberRange", "string"),
-        })
+        }),
       );
     } else {
       promptForInput({
@@ -175,9 +178,9 @@ export function activate() {
               range,
               decimalPlaces: nova.config.get(
                 "random.floatDecimalPlaces",
-                "number"
+                "number",
               ),
-            })
+            }),
           );
         },
       });
@@ -188,7 +191,7 @@ export function activate() {
       insertAtPosition(editor, () =>
         numberInt({
           range: nova.config.get("random.defaultNumberRange", "string"),
-        })
+        }),
       );
     } else {
       promptForInput({
@@ -208,7 +211,7 @@ export function activate() {
       insertAtPosition(editor, () =>
         numberBinary({
           range: nova.config.get("random.defaultNumberRange", "string"),
-        })
+        }),
       );
     } else {
       promptForInput({
@@ -227,21 +230,21 @@ export function activate() {
     insertAtPosition(editor, () =>
       stringAlphanumeric({
         length: nova.config.get("random.stringLength", "number"),
-      })
+      }),
     );
   });
   nova.commands.register("random.stringAlphabetical", (editor) => {
     insertAtPosition(editor, () =>
       stringAlphabetical({
         length: nova.config.get("random.stringLength", "number"),
-      })
+      }),
     );
   });
   nova.commands.register("random.stringPassword", (editor) => {
     insertAtPosition(editor, () =>
       stringPassword({
         length: nova.config.get("random.stringLength", "number"),
-      })
+      }),
     );
   });
   nova.commands.register("random.stringSingleLetter", (editor) => {
@@ -260,14 +263,14 @@ export function activate() {
     insertAtPosition(editor, () =>
       webDomainName({
         domainExtensions: nova.config.get("random.domainTLDs", "array"),
-      })
+      }),
     );
   });
   nova.commands.register("random.webURL", (editor) => {
     insertAtPosition(editor, () =>
       webURL({
         domainExtensions: nova.config.get("random.domainTLDs", "array"),
-      })
+      }),
     );
   });
   nova.commands.register("random.webEmail", (editor) => {
@@ -276,9 +279,9 @@ export function activate() {
         domainExtensions: nova.config.get("random.domainTLDs", "array"),
         useRealEmailDomains: nova.config.get(
           "random.useRealEmailDomains",
-          "boolean"
+          "boolean",
         ),
-      })
+      }),
     );
   });
 }

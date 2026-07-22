@@ -3,7 +3,7 @@
   "name": "Randomize Everything",
   "organization": "querkmachine",
   "description": "Generate random placeholder content anywhere.",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "repository": "https://github.com/querkmachine/nova-randomize-everything",
   "bugs": "https://github.com/querkmachine/nova-randomize-everything/issues",
   "license": "MIT",
@@ -102,17 +102,17 @@
       },
       { "separator": true },
       {
-        "title": "Random date (YYYY-MM-DD)",
-        "command": "random.dateISO8601",
+        "title": "Random date",
+        "command": "random.date",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random time (HH:MM:SS)",
-        "command": "random.timeISO8601",
+        "title": "Random time",
+        "command": "random.time",
         "when": "editorHasFocus"
       },
       {
-        "title": "Random date and time",
+        "title": "Random date and time (ISO-8601)",
         "command": "random.datetimeISO8601",
         "when": "editorHasFocus"
       },
@@ -240,6 +240,38 @@
       "title": "Dates and times",
       "children": [
         {
+          "key": "random.dateFormat",
+          "title": "Date format",
+          "description": "The format returned by the 'random date' generator.",
+          "type": "enum",
+          "radio": true,
+          "default": "iso",
+          "values": [
+            ["iso", "YYYY-MM-DD"],
+            ["ddmmyyyy", "DD/MM/YYYY"],
+            ["mmddyyyy", "MM/DD/YYYY"]
+          ]
+        },
+        {
+          "key": "random.timeFormat",
+          "title": "Time format",
+          "description": "The format returned by the 'random time' generator.",
+          "type": "enum",
+          "radio": true,
+          "default": "24hour",
+          "values": [
+            ["24hour", "24 hour (00:00 to 23:59)"],
+            ["12hour", "12 hour (12:00 a.m. to 11:59 p.m.)"]
+          ]
+        },
+        {
+          "key": "random.timeIncludeSeconds",
+          "title": "Include seconds",
+          "description": "Include seconds in the output of the 'random time' generator.",
+          "type": "boolean",
+          "default": true
+        },
+        {
           "key": "random.yearMin",
           "title": "Earliest possible year",
           "description": "The earliest year that a generated date can be in.",
@@ -269,7 +301,7 @@
           "values": [
             ["full", "Use a randomized timezone offset (e.g. -05:00)"],
             ["utc", "Always use the UTC timezone (Z)"],
-            ["none", "Do not use a timezone indicator"]
+            ["none", "Don't include a timezone indicator"]
           ]
         }
       ]
